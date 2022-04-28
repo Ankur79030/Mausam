@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" media="screen and (max-width:590px)" href="/css/mobileindex.css">
+    <link rel="stylesheet" media="screen and (min-width:600px) and (max-width:950px)" href="/css/mobileHorizontalIndex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="body">
+    <header id="header">
+        <h1 id="heading">MAUSAM</h1>
+    </header>
+
+        <section id="section">
+            <div id="card">
+                <div id="search">
+                    <input id="searchbar" type="text" placeholder="search">
+                    <button id="searchbutton" type="button" onclick="button()"></button>
+                </div>
+                <h3 class="items"><span id="cityName"></span></h3>
+                <h3 id="temperature" class="items"></h3>
+                <div class="items" id="divIcon">
+                    <img id="icon" src="" alt="icon">
+                </div>
+                <span class="items" id="description"></span>
+                <pre class="items"><span id="humidity" ></span></pre>
+                <pre class="items"><span id="wind"></span> </pre>
+            </div>
+            <div id="containergreet">
+                <span id="greet"></span>
+            </div>
+        </section>
+    
+    <script>
+        
+        // greeting message code below
+        let today=new Date();
+        let hours=today.getHours();
+        if(hours>=4 && hours<12)
+        {
+            let select=document.getElementById("greet");
+            select.innerHTML="GOOD MORNING";
+        }
+        else if(hours>=12 && hours<=4)
+        {
+            let select=document.getElementById("greet");
+            select.innerHTML="GOOD AFTERNOON";
+        }
+        else{
+            let select=document.getElementById("greet");
+            select.innerHTML="GOOD EVENING";
+        }
+
+        // change heading
+        let arr=["MAUSAM","WEATHER"];
+        let c=0;
+        let selectHeading=document.getElementById("heading");
+        let interval=setInterval(change,9000);
+        function change()
+        {
+            selectHeading.innerHTML=arr[c];
+            c++;
+            if(c>=2)
+            {
+                c=0;
+            }
+        }
+
+    </script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
